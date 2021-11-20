@@ -1,7 +1,5 @@
 package com.devsuperior.movieflix.resources;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +16,9 @@ public class UserResource {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<List<UserDTO>> findAll(){
-		List<UserDTO> list = service.findAll();
-		return ResponseEntity.ok().body(list);
-	}
+	@GetMapping(value = "/profile")
+    public ResponseEntity<UserDTO> getProfile() {
+        UserDTO dto = service.getProfile();
+        return ResponseEntity.ok(dto);
+    }
 }
